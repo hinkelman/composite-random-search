@@ -1,4 +1,4 @@
-# Composite random search
+## Composite random search strategies based on non-directional sensory cues
 
 Code for [NetLogo](https://ccl.northwestern.edu/netlogo/) model described in [Nolting et al. 2015](https://doi.org/10.1016/j.ecocom.2015.03.002). Compatible with NetLogo 5.3.1.
 
