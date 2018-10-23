@@ -269,7 +269,6 @@ to-report resource-coord
   report list x-cor y-cor
 end
 
-
 @#$#@#$#@
 GRAPHICS-WINDOW
 220
@@ -560,9 +559,9 @@ TEXTBOX
 
 TEXTBOX
 255
-620
+725
 535
-665
+770
 Green patches show core foraging area. Resources are confined to core area.
 14
 9.9
@@ -570,9 +569,9 @@ Green patches show core foraging area. Resources are confined to core area.
 
 TEXTBOX
 255
-555
+655
 535
-590
+690
 Yellow patches show buffer area. Forager can move through buffer area.
 14
 9.9
@@ -580,9 +579,9 @@ Yellow patches show buffer area. Forager can move through buffer area.
 
 TEXTBOX
 255
-690
+555
 530
-760
+625
 Red patches show absorbing boundary. When foragers encounter boundary, they are randomly placed back in core area.
 14
 9.9
