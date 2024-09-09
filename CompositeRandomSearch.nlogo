@@ -1,15 +1,3 @@
-extensions [ profiler ]
-
-to profile
-  setup                  ;; set up the model
-  profiler:start         ;; start profiling
-  repeat 200 [ setup ]   ;; run something you want to measure
-  profiler:stop          ;; stop profiling
-  print profiler:report  ;; view the results
-  profiler:reset         ;; clear the data
-end
-
-
 breed [ resources resource ]
 breed [ foragers forager ]
 
@@ -258,25 +246,19 @@ to visualize-sensory-field                                             ; Calcula
 end
 
 to-report resource-coord
-  let x-cor [ ]
-  let y-cor [ ]
-  foreach sort resources[
-    ask ? [
-      set x-cor lput ([xcor] of self) x-cor
-      set y-cor lput ([ycor] of self) y-cor
-      ]
-    ]
+  let res sort resources
+  let x-cor map [ x -> [xcor] of x] res
+  let y-cor map [ x -> [ycor] of x] res
   report list x-cor y-cor
 end
-
 @#$#@#$#@
 GRAPHICS-WINDOW
 220
 15
-1604
-1420
-114
-114
+1602
+1398
+-1
+-1
 6.0
 1
 10
@@ -323,7 +305,7 @@ cluster-num
 cluster-num
 1
 20
-15
+15.0
 1
 1
 NIL
@@ -338,7 +320,7 @@ resource-num
 resource-num
 100
 1000
-400
+100.0
 100
 1
 NIL
@@ -353,7 +335,7 @@ cluster-radius
 cluster-radius
 4
 64
-16
+64.0
 4
 1
 NIL
@@ -400,7 +382,7 @@ intensive-mu
 intensive-mu
 1
 3
-3
+3.0
 0.1
 1
 NIL
@@ -415,7 +397,7 @@ giving-up-time
 giving-up-time
 100
 1000
-100
+100.0
 100
 1
 NIL
@@ -445,7 +427,7 @@ sigma
 sigma
 1
 30
-1
+1.0
 1
 1
 NIL
@@ -471,7 +453,7 @@ forager-num
 forager-num
 1
 10
-1
+1.0
 1
 1
 NIL
@@ -552,7 +534,7 @@ TEXTBOX
 670
 195
 696
------------------------------
+-------------------------------------------
 11
 0.0
 1
@@ -580,8 +562,8 @@ Yellow patches show buffer area. Forager can move through buffer area.
 TEXTBOX
 255
 555
-530
-625
+535
+630
 Red patches show absorbing boundary. When foragers encounter boundary, they are randomly placed back in core area.
 14
 9.9
@@ -590,8 +572,8 @@ Red patches show absorbing boundary. When foragers encounter boundary, they are 
 TEXTBOX
 255
 400
-525
-520
+545
+530
 Blue patches show maximum extent for random placement of parent points (part of Neyman-Scott process). Extent of blue patches depends on cluster radius. When cluster radius is 4, blue patches do not extend beyond the buffer area.
 14
 9.9
@@ -981,9 +963,8 @@ false
 0
 Polygon -7500403 true true 270 75 225 30 30 225 75 270
 Polygon -7500403 true true 30 75 75 30 270 225 225 270
-
 @#$#@#$#@
-NetLogo 5.3.1
+NetLogo 6.4.0
 @#$#@#$#@
 @#$#@#$#@
 @#$#@#$#@
@@ -999,7 +980,6 @@ true
 0
 Line -7500403 true 150 150 90 180
 Line -7500403 true 150 150 210 180
-
 @#$#@#$#@
 1
 @#$#@#$#@
